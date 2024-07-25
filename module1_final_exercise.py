@@ -45,7 +45,8 @@ print(x + y);
 num: int = int(input("Please enter a number with 2 digits: "));
 x: int = num % 10;
 y: int = num // 10;
-print(f"{x}{y}");
+new_num: int = x * 10 + y
+print(new_num);
 
 # Exercise 9
 num: int = int(input("Please enter a number with 2 digits: "));
