@@ -112,8 +112,7 @@ else:
 
 # Exercise 3
 number: int = int(input("Please enter a number: "));
-i: int = 0;
-for i in range(i, number + 1, 2):
+for i in range(0, number + 1, 2):
     print(i, end=" ");
 
 # Exercise 4
