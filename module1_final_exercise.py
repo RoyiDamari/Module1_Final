@@ -124,20 +124,15 @@ for i in range(maximum + 1):
 
 # Data processing
 # Exercise 1
-user_input: bool = False
-total: int = 0;
-while True:
-    number: int = int(input("Please enter a number: "));
-    if number == -99:
-        break
+total: any = None;
+    while True:
+        number: int = int(input("Please enter a number: "));
+        if number == -99:
+            break
 
-    total += number;
-    user_input = True;
+        total = number if not total else total + number;
 
-if user_input:
-    print("The sum of the numbers is:", total);
-else:
-    print(None)
+print(f"Thr sum of the numbers is {total}" if total else "No numbers was given");
 
 # Exercise 2
 numbers: list[int] = [];
