@@ -217,9 +217,10 @@ i: int = 0;
 avg_temp: float = 0;
 max_temp: float = 0;
 min_temp: float = 0;
+counter: int = 0;
 
-while i < 12:
-    temp: float = None;
+while i < 6:
+    temp: any = None;
     while not temp:
         try:
             temp = float(input("Please enter a temperature: "));
@@ -233,7 +234,7 @@ while i < 12:
         print("Wrong data");
         break;
 
-    elif temp == 0:
+    if temp == 0 and i != 0:
         if temp == temp_list[i - 1]:
             continue;
         else:
@@ -266,39 +267,35 @@ first_vote_for: any = None;
 last_vote_against: any = None;
 
 while i < 44:
-    vote: int = None;
+    vote: any = None;
     while not vote:
         try:
             vote = int(input("Please enter your vote number: "));
             if vote < 1 or vote > 4:
-                break;
+                print("Invalid number Please type a number between 1 and 4");
+                continue;
+
+            else:
+                vote_list.append(vote);
+                i += 1;
 
         except Exception as e:
             print(f"Something went wrong ---{e}---...try again")
 
     if vote == 4:
         vote_list.append(vote);
-        print("The country number that voted veto is: ", vote_list[i]);
+        print("The country number that voted veto is: ", (i + 1));
         break;
-
-    elif vote < 1 or vote > 4:
-        continue;
-
-    else:
-        vote_list.append(vote);
-
-    i += 1;
 
 else:
     count_vote_for = vote_list.count(1);
     count_vote_against = vote_list.count(2);
     count_abstained = vote_list.count(3);
-    first_vote_for = vote_list.index(1);
-    last_vote_against = len(vote_list) - 1 - vote_list[::-1].index(2)
+    first_vote_for = vote_list.index(1) + 1;
+    last_vote_against = len(vote_list) - vote_list[::-1].index(2)
     print(f"The countries voted list is: {vote_list}");
     print(f"The number of countries voted for is: {count_vote_for}");
     print(f"The number of countries voted against is: {count_vote_against}");
     print(f"The number of countries that abstained from voting is: {count_abstained}");
     print(f"The first index number of the country voted for is: {first_vote_for}");
     print(f"The last index number of the country voted against is: {last_vote_against}");
-
